@@ -9,8 +9,6 @@ import (
 	_ "github.com/heroku/x/hmetrics/onload"
 )
 
-
-
 func main() {
 	port := os.Getenv("PORT")
 
@@ -21,8 +19,9 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"msg":"this worked"})
+	router.GET("/:name", func(c *gin.Context) {
+		name := c.Param("name")
+		c.JSON(http.StatusOK, gin.H{"nombre": name})
 	})
 
 	router.Run(":" + port)
