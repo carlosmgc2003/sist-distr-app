@@ -1,1 +1,1 @@
-web: bin/sist-distr-app
+web: bin/main
