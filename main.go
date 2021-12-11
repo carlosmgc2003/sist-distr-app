@@ -19,11 +19,12 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"saludo": "visitante"})
+	})
+
 	router.GET("/:name", func(c *gin.Context) {
 		name := c.Param("name")
-		if len(name) == 0 {
-			name = "no especificado"
-		}
 		c.JSON(http.StatusOK, gin.H{"nombre": name})
 	})
 
