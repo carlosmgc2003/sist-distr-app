@@ -1,5 +1,6 @@
 module github.com/carlosmgc2003/sist-distr-app
 
+// +heroku goVersion go1.17
 go 1.17
 
 require (
